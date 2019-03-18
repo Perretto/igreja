@@ -1,7 +1,7 @@
 IP: 34.212.28.6
 
 //Deleta arquivo
-sudo rm -r ERPCloud
+sudo rm -r igreja
 
 sudo git clone https://github.com/Perretto/ERPCloud.git
 
