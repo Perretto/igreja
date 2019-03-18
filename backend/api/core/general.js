@@ -3,7 +3,7 @@ var sqlite3 = require('sqlite3').verbose();
 exports.select =  function (sql, callback){
     var retorno = [];
     //var db = new sqlite3.Database('C:\\sqlite\\baseig');
-    var db = new sqlite3.Database('baseig');
+    var db = new sqlite3.Database(':baseig');
     
     db.serialize(function() {
         db.each(sql, function(err, row) {
@@ -24,7 +24,7 @@ exports.select =  function (sql, callback){
 exports.execute =  function (sql, callback){
     var retorno = [];
     //var db = new sqlite3.Database('C:\\sqlite\\baseig');
-    var db = new sqlite3.Database('baseig');
+    var db = new sqlite3.Database(':baseig');
     
     db.serialize(function() {        
         db.run(sql);        
@@ -115,7 +115,7 @@ exports.executeObj =  function (table, parametros, callback){
     console.log(sql)
     var retorno = [];
     //var db = new sqlite3.Database('C:\\sqlite\\baseig');
-    var db = new sqlite3.Database('baseig');
+    var db = new sqlite3.Database(':baseig');
     
     db.serialize(function() {        
         db.run(sql,function(err, ret){
