@@ -10,7 +10,7 @@ function logar(){
         return;
     }
 
-    var url = "http://localhost:3005/api/administrador/login/" + login + "/" + senha
+    var url = "http://" + window.location.host + ":3005/api/administrador/login/" + login + "/" + senha
                  
     $.ajax({        
         type: "GET",

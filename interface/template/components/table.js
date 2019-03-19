@@ -1,5 +1,6 @@
-function createtable(table){    
-    var url = "http://localhost:3005/api/cadastros/" + table + "/listsearch"
+function createtable(table){  
+
+    var url = "http://" + window.location.host + ":3005/api/cadastros/" + table + "/listsearch"
                     
     $.ajax({        
         type: "GET",
@@ -125,7 +126,7 @@ function cancelargrid(){
 
 function edit(id, table){
     
-    var url = "http://localhost:3005/api/cadastros/" + table + "/search/" + id
+    var url = "http://" + window.location.host + ":3005/api/cadastros/" + table + "/search/" + id
                     
     $.ajax({        
         type: "GET",
