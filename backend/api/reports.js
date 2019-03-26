@@ -55,7 +55,7 @@ router.route('/impressoesfixas/:nome').get(function(req, res) {
                 footer: {
                     "height":"10mm", 
                     "contents":html.footer
-                }
+                }, timeout: '100000'
             };
 
             res.setHeader('Content-type', 'application/pdf');
