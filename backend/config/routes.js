@@ -9,4 +9,5 @@ module.exports = function(server) {
     const membros = require('../api/cadastros/membroservice')
     const usuarios = require('../api/cadastros/usuarioservice')
     const administrador = require('../api/administrador')
+    const reports = require('../api/reports')
 }
