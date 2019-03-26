@@ -22,11 +22,9 @@ function save(table){
                     if(!$(element).is(":checked")){
                         var name = $(element).attr("name");
                         data += "&" + name + "=false"
-                    }
-                    
+                    }                    
                 }
 
-                console.log(data);
                 
                 $.ajax({        
                     type: "POST",

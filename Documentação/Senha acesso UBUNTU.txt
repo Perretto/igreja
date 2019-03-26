@@ -3,93 +3,14 @@ IP: 34.212.28.6
 //Deleta arquivo
 sudo rm -r igreja
 
-sudo git clone https://github.com/Perretto/ERPCloud.git
-
-mongo
-use broker
-
-db.getCollection("containers").drop()
-db.getCollection("controls").drop()
-db.getCollection("layouts").drop()
-db.getCollection("menus").drop()
-db.getCollection("reports").drop()
-
-mongorestore -d erpcloud /home/ubuntu/ERPCloud/bkp/dump/erpcloud
-
-mongorestore -d broker /home/ubuntu/ERPCloud/bkp/dump/broker 
+sudo git clone https://github.com/Perretto/igreja.git
 
 
-cd ERPCloud/backend
-sudo npm uninstall html-pdf 
-sudo npm install html-pdf
+sudo chmod 777 -R /home/ubuntu/igreja
 
-sudo chmod 777 -R /home/ubuntu/ERPCloud/frontend/reports
-sudo chmod 777 -R /home/ubuntu/ERPCloud/frontend/reports/parametrosusuarios
-sudo chmod 777 -R /home/ubuntu/ERPCloud/node_modules
-
-sudo npm install puppeteer  --unsafe-perm=true --allow-root
-
-sudo apt-get install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
-
-
-cd ..
-cd ..
-
-cd ERPCloud
+cd igreja
+cd backend
+npm install sqlite3
 pm2 stop backend
 pm2 start backend
 
-
-
-
-
-
-Acesso SSH
-Login : ubuntu
-ubuntu@ec2-54-244-110-233.us-west-2.compute.amazonaws.com
-
-Senha : 123
-
-Arquivo: ubuntu.ppk
-
-===============================================================
-
-Servidor http-web
-http-server -a ec2-52-24-153-165.us-west-2.compute.amazonaws.com -p 3000
-
-
-Servidor node
-npm run production
-
-==========================================
-
-Registro.br
-IDL134
-in222023
-
-============================================
-
-sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
-
-=============================================
-
-Backup e restore mongodb
-
-mongodump
-
-mongorestore -d erpcloud /home/ubuntu/ERPCloud/bkp/erpcloud
-mongorestore -d erpcloud /home/ubuntu/bkp
-
-db.getCollection("containers").drop()
-db.getCollection("controls").drop()
-db.getCollection("layouts").drop()
-db.getCollection("menus").drop()
-
-
-
-
-// Muda o nome da pasta
-mv arquivo.old arquivo.new
-
-
-http-server -a ec2-54-244-177-92.us-west-2.compute.amazonaws.com -p 3000
