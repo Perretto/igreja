@@ -194,7 +194,7 @@
               <a class="dropdown-item">
                 Check Inbox
               </a>-->
-              <a href="../samples/login.html" class="dropdown-item">
+              <a onclick="deslogar()" href="#" class="dropdown-item">
                 Sair
               </a>
             </div>
@@ -235,11 +235,21 @@
                   <h4 class="card-title">CADASTRO DE MEMBROS</h4>
                    
                   <form class="forms-sample">
-                    <input type="hidden" class="form-control" name="id" id="id" placeholder="id">
-                    <div class="form-group">
+                      <input type="hidden" class="form-control" name="id" id="id" placeholder="id">
+                      
+
+                    <div class="image col-md-1"  style="display:inline-block">                                                    
+                        <img   style="width: 100%;" src="" >                                                    
+                        <input type="hidden" id='img_foto' name='img_foto' class="form-control">
+                        <input type="file" style="display:none"  />                                                    
+                    </div> 
+
+                    
+                    <div class="form-group  col-md-10" style="display:inline-block">
                       <label for="exampleInputName1">Nome</label>
                       <input type="text" name="nm_nome" class="form-control" id="membronome" placeholder="Nome">
                     </div>
+                  
 
                     <div class="row">
                             <div class="form-group col-md-3 ">

@@ -1,6 +1,6 @@
 function createtable(table){  
 
-    var url = "http://" + window.location.host + ":3005/api/cadastros/" + table + "/listsearch"
+    var url = "http://" + window.location.hostname + ":3005/api/cadastros/" + table + "/listsearch"
                     
     $.ajax({        
         type: "GET",
@@ -126,7 +126,7 @@ function cancelargrid(){
 
 function edit(id, table){
     
-    var url = "http://" + window.location.host + ":3005/api/cadastros/" + table + "/search/" + id
+    var url = "http://" + window.location.hostname + ":3005/api/cadastros/" + table + "/search/" + id
                     
     $.ajax({        
         type: "GET",
@@ -139,14 +139,21 @@ function edit(id, table){
 
                         if($("[name='" + index + "']").attr("type") == "checkbox"){
                             if(data[0][index]){
-                                $("[name='" + index + "']").attr("checked", true)
                                 $("[name='" + index + "']").prop("checked", true)
                             }else{
-                                $("[name='" + index + "']").attr("checked", false)
                                 $("[name='" + index + "']").prop("checked", false)
-
                             }
                         }
+                        
+                        if(index.indexOf("img_") > -1){
+                            if(data[0][index]){
+                                $($("#" + index).prev()).attr("src", data[0][index])
+                            }else{
+                                imagensPadrao()
+                            }
+                        }
+
+                        
                     }
                     
                     $("#rowform").show();

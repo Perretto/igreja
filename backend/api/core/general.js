@@ -65,8 +65,22 @@ exports.executeObj =  function (table, parametros, callback){
                         nome = "'" + parametros[index] + "'";
                         break; 
                     case "dt":
+                        console.log(parametros[index])
                         nome = "'" + parametros[index] + "'";
-                        break;            
+                        break;     
+                    case "im":
+                        nome = "'" + parametros[index] + "'";
+                        break;                                   
+                    case "vl":  
+                        if(parametros[index].substr(parametros[index].length - 3,1) == ","){
+                            parametros[index] = parametros[index].replace(".","").replace(".","").replace(".","").replace(".","").replace(".","").replace(",",".")
+                        }
+                        
+                        if(!parametros[index]){
+                            parametros[index] = "0";
+                        }
+                        nome = "" + parametros[index] + "";
+                    break;         
                     default:
                         nome = "" + parametros[index] + "";
                         break;
@@ -92,7 +106,18 @@ exports.executeObj =  function (table, parametros, callback){
                         break; 
                     case "dt":
                         nome =  "'" + parametros[index] + "'";
-                        break;            
+                        break;      
+                    case "im":
+                        nome = "'" + parametros[index] + "'";
+                        break;                                          
+                    case "vl": 
+                        if(parametros[index].substr(parametros[index].length - 3,1) == ","){
+                            parametros[index] = parametros[index].replace(".","").replace(".","").replace(".","").replace(".","").replace(".","").replace(",",".")
+                        }
+                        if(!parametros[index]){
+                            parametros[index] = "0";
+                        }
+                        nome = "" + parametros[index] + "";         
                     default:
                         nome = "" + parametros[index] + "";
                         break;

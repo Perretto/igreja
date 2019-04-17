@@ -41,10 +41,15 @@ router.route('/impressoesfixas/:nome').get(function(req, res) {
             }else{
                 html.footer = " ";
             }
+
+            
+            var orientation = "portrait";
+            if(ret[0].nm_orientation){
+                orientation = ret[0].nm_orientation;
+            }
             
 
             var headersize = "20";
-            var orientation = "portrait";
             var options = {
                 paginationOffset: 1,
                 orientation: orientation, 
@@ -58,8 +63,11 @@ router.route('/impressoesfixas/:nome').get(function(req, res) {
                 }, timeout: '100000'
             };
 
+            /*
+            res.send(html.topo +  html.detail + html.base);
+            res.end()
+            */
             res.setHeader('Content-type', 'application/pdf');
-
             pdf.create(html.topo +  html.detail + html.base, options).toBuffer(function(err, buffer){
 
                 if(err){
@@ -74,6 +82,7 @@ router.route('/impressoesfixas/:nome').get(function(req, res) {
 
                 res.end()
             });
+            
         }   
     })    
    

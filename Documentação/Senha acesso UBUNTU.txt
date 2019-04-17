@@ -1,4 +1,10 @@
 IP: 34.212.28.6
+sudo apt-get install libfontconfig
+
+
+sudo npm install sqlite3
+sudo npm install -g phantomjs-prebuilt
+sudo npm install html-pdf
 
 //Deleta arquivo
 sudo rm -r igreja
@@ -7,10 +13,22 @@ sudo git clone https://github.com/Perretto/igreja.git
 
 
 sudo chmod 777 -R /home/ubuntu/igreja
+sudo chmod 777 -R /home/ubuntu/igreja/backend
+sudo chmod 777 -R /home/ubuntu/igreja/backend/node_modules
+sudo chmod 777 -R /home/ubuntu/igreja/backend/node_modules/phantomjs-prebuilt
+
 
 cd igreja
 cd backend
-npm install sqlite3
+
+
+sudo npm install sqlite3
+
+sudo npm install -g phantomjs-prebuilt
+sudo npm install html-pdf
+sudo apt-get install libfontconfig
+sudo npm rebuild phantomjs-prebuilt
+
 pm2 stop backend
 pm2 start backend
 

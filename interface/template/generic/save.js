@@ -14,7 +14,7 @@ function save(table){
      
                 instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');                
                 
-                var url = "http://" + window.location.host + ":3005/api/cadastros/" + table + "/gravar"
+                var url = "http://" + window.location.hostname + ":3005/api/cadastros/" + table + "/gravar"
                 var data = $("form").serialize();
 
                 for (let index = 0; index < $("[name][type='checkbox']").length; index++) {
@@ -87,7 +87,7 @@ function ondelete(table){
      
                 instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');                
                 
-                var url = "http://" + window.location.host + ":3005/api/cadastros/" + table + "/delete/" + id
+                var url = "http://" + window.location.hostname + ":3005/api/cadastros/" + table + "/delete/" + id
                  
                 $.ajax({        
                     type: "GET",
@@ -136,7 +136,9 @@ function novo(){
         }
     }
     
+    imagensPadrao()
     $("textarea").val("");
+    $("select").val("");
 }
 
 
